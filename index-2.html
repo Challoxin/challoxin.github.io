@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Challoxin — Community Hub</title>
+<meta name="description" content="Challoxin is a community hub bridging Twitch streams, Discord alerts, and TikTok content.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d12;
+  --panel:#12151d;
+  --panel-2:#161a24;
+  --line:#242a38;
+  --text:#e8eaf0;
+  --muted:#9aa3b5;
+  --purple:#9146ff;
+  --cyan:#25f4ee;
+  --pink:#fe2c55;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',system-ui,sans-serif;
+  line-height:1.7;
+  font-size:16px;
+}
+h1,h2,h3{font-family:'Chakra Petch',sans-serif;line-height:1.2}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:10;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;
+  background:rgba(11,13,18,.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.logo{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:.5px;color:var(--text)}
+.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:22px;flex-wrap:wrap}
+.nav-links a{color:var(--muted);font-size:.85rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em}
+.nav-links a:hover{color:var(--text);text-decoration:none}
+
+/* HERO */
+.hero{
+  position:relative;
+  padding:110px 24px 90px;
+  text-align:center;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(ellipse 60% 50% at 50% -10%, rgba(145,70,255,.22), transparent),
+    radial-gradient(ellipse 40% 35% at 85% 100%, rgba(37,244,238,.07), transparent),
+    var(--bg);
+}
+.live-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--cyan);
+  border:1px solid var(--line);
+  padding:6px 14px;border-radius:100px;
+  background:rgba(22,26,36,.7);
+  margin-bottom:26px;
+}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--pink);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@media (prefers-reduced-motion: reduce){.live-dot{animation:none}}
+.hero h1{
+  font-size:clamp(2.2rem,6vw,3.8rem);
+  font-weight:700;
+  margin-bottom:18px;
+}
+.hero h1 .grad{
+  background:linear-gradient(90deg,var(--purple),var(--cyan));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p{max-width:640px;margin:0 auto 34px;color:var(--muted);font-size:1.08rem}
+.platforms{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.chip{
+  font-size:.8rem;font-weight:600;letter-spacing:.05em;
+  padding:8px 18px;border-radius:8px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:var(--text);
+}
+.chip.twitch{border-color:rgba(145,70,255,.5)}
+.chip.discord{border-color:rgba(88,101,242,.5)}
+.chip.tiktok{border-color:rgba(37,244,238,.5)}
+
+/* SECTIONS */
+main{max-width:860px;margin:0 auto;padding:0 24px 80px}
+section{padding-top:70px}
+.eyebrow{
+  font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--purple);margin-bottom:10px;
+}
+section h2{font-size:1.7rem;margin-bottom:18px}
+section p{color:var(--muted);margin-bottom:16px}
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:34px;
+}
+.legal h3{font-size:1.05rem;margin:26px 0 8px;color:var(--text)}
+.legal p, .legal li{color:var(--muted);font-size:.95rem}
+.legal ul{margin:0 0 16px 22px}
+.legal li{margin-bottom:8px}
+.meta{font-size:.8rem;color:var(--muted);letter-spacing:.03em;margin-bottom:20px;text-transform:uppercase}
+
+footer{
+  border-top:1px solid var(--line);
+  padding:30px 24px;
+  text-align:center;
+  color:var(--muted);
+  font-size:.85rem;
+}
+@media (max-width:600px){
+  .card{padding:22px}
+  .nav-links{gap:14px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">CHALLOXIN<span></span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#privacy">Privacy Policy</a>
+    <a href="#terms">Terms of Service</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="live-badge"><span class="live-dot"></span>Community Hub</div>
+  <h1>One community.<br><span class="grad">Every platform.</span></h1>
+  <p>Challoxin is the community hub bridging Twitch streams, Discord alerts, and TikTok content — so followers never miss a live moment, a highlight clip, or a community event.</p>
+  <div class="platforms">
+    <span class="chip twitch">TWITCH</span>
+    <span class="chip discord">DISCORD</span>
+    <span class="chip tiktok">TIKTOK</span>
+  </div>
+</header>
+
+<main>
+
+<section id="about">
+  <div class="eyebrow">What the app does</div>
+  <h2>App Functionality</h2>
+  <div class="card">
+    <p>Challoxin allows members of our community to sync their social profiles within our community ecosystem. After signing in, users can link their TikTok account through TikTok's official Login Kit, allowing the app to display their public profile (display name and avatar) and their public TikTok video feed on our community hub, and to connect their identity across our Twitch and Discord community spaces.</p>
+    <p>When you post a new public video on TikTok, the app can trigger community alerts — such as notifications in our Discord server — so followers never miss new content. The app only reads public data that you have already posted; it never publishes, edits, or deletes content on your behalf. Every connection can be revoked by the user at any time from their account settings or directly within TikTok.</p>
+  </div>
+</section>
+
+<section id="privacy" class="legal">
+  <div class="eyebrow">Legal</div>
+  <h2>Privacy Policy</h2>
+  <div class="card">
+    <p class="meta">Effective date: 18 July 2026 · Last updated: 18 July 2026</p>
+
+    <p>This Privacy Policy explains how Challoxin ("we", "us", or "the Service") collects, uses, and protects information when you use our website and application. By using the Service, you agree to the practices described in this policy.</p>
+
+    <h3>1. Information We Collect</h3>
+    <p>We collect only the minimum data necessary to operate the Service. When you connect your TikTok account via the official TikTok API (Login Kit), we receive limited public profile data, which may include:</p>
+    <ul>
+      <li>Your TikTok display name and public avatar image;</li>
+      <li>An open ID token used strictly for secure authentication;</li>
+      <li>Public video data, including video links, view counts, titles, and cover images from content you have publicly posted.</li>
+    </ul>
+    <p>We do not collect passwords, private messages, contact lists, precise location data, or any non-public account information. We do not access content beyond what is explicitly authorised through the API scopes you approve at sign-in.</p>
+
+    <h3>2. How We Use Your Information</h3>
+    <p>Public profile data obtained via the TikTok API is used strictly for:</p>
+    <ul>
+      <li>Authenticating your identity when you sign in;</li>
+      <li>Displaying your linked profile and your public TikTok video feed within the Challoxin community hub;</li>
+      <li>Automating community alerts (such as Discord notifications) when you post a new public video on TikTok.</li>
+    </ul>
+    <p>We do not use your data for advertising profiles, automated decision-making, or any purpose beyond operating the Service.</p>
+
+    <h3>3. Data Sharing and Third Parties</h3>
+    <p>We do not sell, rent, or trade your personal data to third parties. We do not share your information with advertisers or data brokers. Data is only disclosed if required by law or to protect the rights, safety, or security of the Service and its users.</p>
+
+    <h3>4. Data Security</h3>
+    <p>We take reasonable technical and organisational measures to keep your information secure, including encrypted connections (HTTPS/TLS) for all data in transit and restricted access to any stored authentication tokens. No method of transmission or storage is 100% secure, but we work to protect your data using industry-standard practices.</p>
+
+    <h3>5. Data Retention and Deletion</h3>
+    <p>We retain linked profile data only for as long as your account remains connected to the Service. You may disconnect your TikTok account at any time from your account settings, or by revoking the app's access within TikTok's own settings. Upon disconnection, associated profile data and tokens are deleted from our systems within 30 days. You may also request deletion of your data at any time by contacting us.</p>
+
+    <h3>6. Children's Privacy</h3>
+    <p>The Service is not directed at children under the age of 13 (or the applicable minimum age of digital consent in your country, which is 16 in Ireland). We do not knowingly collect data from users below that age. If we become aware that such data has been collected, we will delete it promptly.</p>
+
+    <h3>7. Your Rights</h3>
+    <p>If you are located in the European Union or European Economic Area, you have rights under the General Data Protection Regulation (GDPR), including the right to access, correct, delete, or restrict the processing of your personal data, and the right to lodge a complaint with a supervisory authority such as the Irish Data Protection Commission.</p>
+
+    <h3>8. Changes to This Policy</h3>
+    <p>We may update this Privacy Policy from time to time. Material changes will be reflected by updating the "Last updated" date at the top of this page. Continued use of the Service after changes take effect constitutes acceptance of the revised policy.</p>
+
+    <h3>9. Contact</h3>
+    <p>For any privacy-related questions or data requests, contact us at <a href="mailto:support.challoxin@gmail.com">support.challoxin@gmail.com</a>.</p>
+  </div>
+</section>
+
+<section id="terms" class="legal">
+  <div class="eyebrow">Legal</div>
+  <h2>Terms of Service</h2>
+  <div class="card">
+    <p class="meta">Effective date: 18 July 2026 · Last updated: 18 July 2026</p>
+
+    <p>These Terms of Service ("Terms") govern your access to and use of Challoxin ("the Service"). By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, do not use the Service.</p>
+
+    <h3>1. Eligibility</h3>
+    <p>You must meet the minimum age required by the third-party platforms you connect (Twitch, Discord, and TikTok) and comply with their respective terms of service. By linking an account, you confirm that you are the rightful owner of that account.</p>
+
+    <h3>2. Acceptable Use</h3>
+    <p>You agree to use the Service only for lawful purposes. When using Challoxin, you must not:</p>
+    <ul>
+      <li>Harass, threaten, or abuse other members of the community;</li>
+      <li>Post or share content that is hateful, discriminatory, sexually explicit, or otherwise violates the community guidelines of Twitch, Discord, or TikTok;</li>
+      <li>Impersonate another person or misrepresent your affiliation with any person or entity;</li>
+      <li>Attempt to gain unauthorised access to the Service, other users' accounts, or connected platform APIs;</li>
+      <li>Use bots, scrapers, or automated tools to interact with the Service outside of its intended features;</li>
+      <li>Spam, flood, or disrupt community channels or alerts.</li>
+    </ul>
+
+    <h3>3. User Content</h3>
+    <p>You retain ownership of any content you create or share through the Service. By sharing content within the community ecosystem, you grant Challoxin a limited, non-exclusive licence to display that content within the Service for the purpose of operating community features. You are solely responsible for the content you post and for ensuring it complies with these Terms and the rules of each connected platform.</p>
+
+    <h3>4. Third-Party Platforms</h3>
+    <p>The Service integrates with Twitch, Discord, and TikTok via their official APIs. Your use of those platforms remains governed by their own terms and policies. Challoxin is not affiliated with, endorsed by, or sponsored by Twitch Interactive, Discord Inc., or TikTok/ByteDance.</p>
+
+    <h3>5. Suspension and Termination</h3>
+    <p>We reserve the right to suspend or permanently terminate access to the Service for any user who violates these Terms, engages in misconduct within the community, or uses the Service in a way that harms other users or the platform. Where reasonable, a warning will be issued first; however, serious violations (including harassment, hate speech, or attempted abuse of the Service or its integrations) may result in immediate termination without prior notice. You may stop using the Service and disconnect your linked accounts at any time.</p>
+
+    <h3>6. Disclaimer of Warranties</h3>
+    <p>The Service is provided on an "as is" and "as available" basis, without warranties of any kind, whether express or implied. We do not guarantee that the Service will be uninterrupted, error-free, or available at all times, and we are not responsible for outages or changes to third-party APIs on which the Service depends.</p>
+
+    <h3>7. Limitation of Liability</h3>
+    <p>To the maximum extent permitted by law, Challoxin shall not be liable for any indirect, incidental, or consequential damages arising out of or relating to your use of the Service, including loss of data, content, or account access on third-party platforms.</p>
+
+    <h3>8. Changes to These Terms</h3>
+    <p>We may revise these Terms from time to time. Updated Terms will be posted on this page with a revised "Last updated" date. Continued use of the Service after changes take effect constitutes acceptance of the updated Terms.</p>
+
+    <h3>9. Governing Law</h3>
+    <p>These Terms are governed by and construed in accordance with the laws of Ireland, without regard to conflict of law principles.</p>
+
+    <h3>10. Contact</h3>
+    <p>Questions about these Terms can be directed to us at <a href="mailto:support.challoxin@gmail.com">support.challoxin@gmail.com</a>.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  © 2026 Challoxin — Not affiliated with Twitch, Discord, or TikTok.
+</footer>
+
+</body>
+</html>
