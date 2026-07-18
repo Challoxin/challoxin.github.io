@@ -264,6 +264,26 @@ footer{
 <footer>
   © 2026 Challoxin — Not affiliated with Twitch, Discord, or TikTok.
 </footer>
+<script>
+  // This automatically finds your TIKTOK button and attaches the login flow
+  document.querySelectorAll('button, a, div, span').forEach(element => {
+    if (element.textContent.trim().toUpperCase() === 'TIKTOK') {
+      element.style.cursor = 'pointer';
+      element.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // --- aw8ff4zxw1cunmrm ---
+        const clientKey = 'aw8ff4zxw1cunmrm';
+    
+        
+        const redirectUri = encodeURIComponent('https://challoxin.github.io/');
+        const tiktokAuthUrl = `https://www.tiktok.com/v2/auth/authorize/?client_key=${clientKey}&response_type=code&scope=user.info.basic&redirect_uri=${redirectUri}&state=demo`;
+        
+        window.location.href = tiktokAuthUrl;
+      });
+    }
+  });
+</script>
 
 </body>
 </html>
