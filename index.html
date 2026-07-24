@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Challoxin — Community Hub</title>
 <meta name="description" content="Challoxin is a community hub bridging Twitch streams, Discord alerts, and TikTok content.">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -43,7 +45,8 @@ nav{
   backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line);
 }
-.logo{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:.5px;color:var(--text)}
+.logo{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:.5px;color:var(--text);display:flex;align-items:center;gap:9px}
+.logo img{height:30px;width:30px;border-radius:6px;display:block}
 .logo span{color:var(--purple)}
 .nav-links{display:flex;gap:22px;flex-wrap:wrap}
 .nav-links a{color:var(--muted);font-size:.85rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em}
@@ -132,7 +135,7 @@ footer{
 <body>
 
 <nav>
-  <div class="logo">CHALLOXIN<span></span></div>
+  <div class="logo"><img src="icon.png" alt="Challoxin logo">CHALLOXIN</div>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#privacy">Privacy Policy</a>
